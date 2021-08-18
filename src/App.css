@@ -1,38 +1,226 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-image: url("./Images/sky.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.highway {
+  height: 200px;
+  width: 1000%;
+  display: block;
+  background-image: url("./Images/road.jpg");
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  animation: highway 5s linear infinite;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes highway {
+  100% {
+    transform: translateX(-3400px);
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.city {
+  height: 250px;
+  width: 500%;
+  background-image: url("./Images/city.png");
+  position: absolute;
+  bottom: 200px;
+  left: 0;
+  right: 0;
+  display: block;
+  z-index: 1;
+  background-repeat: repeat-x;
+  animation: city 20s linear infinite;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes city {
+  100% {
+    transform: translateX(-1400px);
   }
-  to {
+}
+.car {
+  width: 400px;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+.car img {
+  width: 100%;
+  animation: car 1s linear infinite;
+}
+@keyframes car {
+  100% {
+    transform: translateY(-1px);
+  }
+  50% {
+    transform: translateY(1px);
+  }
+  0% {
+    transform: translateY(-1px);
+  }
+}
+.petrolpump {
+  width: 200px;
+  left: 50%;
+  bottom: 180px;
+  transform: translateX(40%);
+  position: absolute;
+  z-index: 2;
+}
+
+.petrolpump img {
+  width: 100%;
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.pumpfound {
+  background-color: #92ad40;
+  color: #fff;
+  font-weight: 600;
+  width: 150px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+.wheel {
+  left: 50%;
+  bottom: 178px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+}
+.wheel img {
+  width: 72px;
+  height: 72px;
+  animation: wheel 1s linear infinite;
+}
+@keyframes wheel {
+  100% {
     transform: rotate(360deg);
   }
+}
+.back-wheel {
+  left: -165px;
+  position: absolute;
+}
+.front-wheel {
+  left: 80px;
+  position: absolute;
+}
+.Startbtn {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Startbtn button {
+  width: 150px;
+  height: 70px;
+  background-color: rgb(224, 64, 64);
+  font-size: large;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+.Startbtn button:hover {
+  background-color: #34e43a;
+  color: #fff;
+  border: 3px solid rgb(224, 64, 64);
+}
+.Battery {
+  width: 100px;
+  height: 40px;
+}
+.console {
+  margin-right: 5px;
+  margin-top: 35px;
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  align-self: flex-end;
+  border-radius: 5px;
+  background-color: darkgray;
+  overflow: scroll;
+}
+.console div:first-child {
+  position: fixed;
+  margin-top: -20px;
+  width: 30%;
+  border-radius: 5px;
+}
+.console > div:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.fuelinfo {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border: 5px solid #000;
+  width: 100%;
+  z-index: 1000;
+  background-color: #92ad40;
+  padding: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  align-self: center;
+  text-align: center;
+}
+.result {
+  font-size: 200px;
+  position: absolute;
+  color: #4d1399;
+  border: 5px dotted #000;
+  top: 30%;
+  left: 5%;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+@media (min-width: 300px) and (max-width: 1000px) {
+  .result span {
+    font-size: 100px;
+    font-weight: 300;
+  }
+}
+
+.info {
+  background-color: darkgray;
+  width: 50%;
+  height: 100px;
+  align-self: start;
+  margin-left: 5%;
+  padding: 5px;
+  border: 5px solid #92ad40;
+  border-radius: 10px;
+  text-align: center;
 }
